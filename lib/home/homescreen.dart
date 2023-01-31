@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
-
-void main() {
-  runApp(const MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: FrontPage(),
-  ));
-}
+import 'package:taskoneui/home/widgets/searchbar.dart';
+import 'dashboard.dart';
 
 class FrontPage extends StatefulWidget {
   const FrontPage({Key? key}) : super(key: key);
@@ -53,76 +48,65 @@ class _FrontPageState extends State<FrontPage> {
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 500,
-                  child: ListView.builder(
-                      itemCount: 2,
-                      itemBuilder: (BuildContext context, int index) {
-                        return Card(
-                          elevation: 10.0,
-                          color: Colors.white,
-                          child: Padding(
-                            padding: const EdgeInsets.all(20.0),
-                            child: SizedBox(
-                              height: 70.0,
-                              width: double.infinity,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
-                                  Text(
-                                    ". Rajesh Kannan",
-                                    style: TextStyle(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.bold,
+                // SearchBar(),
+                InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/titlepage');
+                  },
+                  child: SizedBox(
+                    height: 500,
+                    child: ListView.builder(
+                        itemCount: 2,
+                        itemBuilder: (BuildContext context, int index) {
+                          return Card(
+                            elevation: 5.0,
+                            color: Colors.white,
+                            child: Padding(
+                              padding: const EdgeInsets.all(20.0),
+                              child: SizedBox(
+                                height: 70.0,
+                                width: double.infinity,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: const [
+                                    Text(
+                                      ". Rajesh Kannan",
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     ),
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Text(
-                                    "Loren Ipsum is simply dummy text",
-                                    style: TextStyle(
-                                        fontSize: 10,
-                                        fontWeight: FontWeight.normal,
-                                        color: Colors.black38),
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Text(
-                                    ". 8.10 AM . Rs.5,000-10,000",
-                                    style: TextStyle(
-                                        fontSize: 10,
-                                        fontWeight: FontWeight.normal,
-                                        color: Colors.black38),
-                                  )
-                                ],
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Text(
+                                      "Loren Ipsum is simply dummy text",
+                                      style: TextStyle(
+                                          fontSize: 10,
+                                          fontWeight: FontWeight.normal,
+                                          color: Colors.black38),
+                                    ),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Text(
+                                      ". 8.10 AM . Rs.5,000-10,000",
+                                      style: TextStyle(
+                                          fontSize: 10,
+                                          fontWeight: FontWeight.normal,
+                                          color: Colors.black38),
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
-                          ),
-                        );
-                      }),
-                ),
+                          );
+                        }),
+                  ),
+                )
               ],
             ),
           ))
-        ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(
-            backgroundColor: Colors.green,
-            icon: Icon(Icons.speaker_notes),
-            label: "New",
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.sticky_note_2_sharp,
-              ),
-              label: ""),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle_outlined), label: ""),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: "")
         ],
       ),
     );

@@ -238,9 +238,23 @@ class _DummyOneState extends State<DummyOne> {
 
   reachUs() async {
     var contact = "9445108870";
-    var android_url = "whatsapp://send?phone=" +
-        contact +
-        "&text=Hi, I want to learn flutter in Coderzbot Innovation";
-    await launchUrlString(android_url);
+    var android_url = "whatsapp://send?phone=" + contact;
+    var iOS_url = "https://wa.me/$contact?text=${Uri.parse("hello")}";
+    if (Platform.isIOS) {
+      //for ios phone only
+      if (await canLaunchUrlString(iOS_url)) {
+        await launchUrlString(iOS_url);
+      } else {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text("watsapp not installed")));
+      }
+    } else {
+      if (await canLaunchUrlString(android_url)) {
+        await launchUrlString(android_url);
+      } else {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text("watsapp not installed")));
+      }
+    }
   }
 }

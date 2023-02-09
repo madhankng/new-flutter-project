@@ -17,6 +17,6 @@ class NavigatorItem {
 List<NavigatorItem> navigatorItems = [
   NavigatorItem("Home", Icons.home, 0, FrontPage()),
   NavigatorItem("My Bookings", Icons.library_books, 1, DummyOne()),
-  NavigatorItem("Customer", Icons.file_open, 2, DummyTwo()),
-  NavigatorItem("History", Icons.history, 3, DummyThree()),
+  NavigatorItem("Profile", Icons.account_circle_outlined, 2, DummyTwo()),
+  NavigatorItem("Setting", Icons.settings, 3, DummyThree()),
 ];
